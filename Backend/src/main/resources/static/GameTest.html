@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Poker Game Tester</title>
+</head>
+<body>
+<h1>WebSocket Poker Game Tester</h1>
+
+<div>
+    <h2>Player Actions</h2>
+    <form id="playerActionForm">
+        <input type="hidden" id="gameId" value="1">
+        <label for="username">Username: </label>
+        <input type="text" id="username" required>
+        <br><br>
+        <label for="chips">Chips: </label>
+        <input type="number" id="chips" required>
+        <br><br>
+        <button type="button" onclick="raise()">Raise</button>
+        <button type="button" onclick="check()">Check</button>
+        <button type="button" onclick="fold()">Fold</button>
+    </form>
+</div>
+
+<div>
+    <h2>Add Chips</h2>
+    <label for="addChipsAmount">Add Chips: </label>
+    <input type="number" id="addChipsAmount">
+    <button type="button" onclick="addChips()">Add Chips</button>
+</div>
+
+<div id="resultMessage"></div>
+
+<div>
+    <h2>User Chips</h2>
+    <div id="userChips">Chips: 0</div>
+</div>
+
+<script>
+    let userChips = 0;
+
+    function raise() {
+        const gameId = document.getElementById("gameId").value;
+        const username = document.getElementById("username").value;
+        const chips = document.getElementById("chips").value;
+
+        // Send a request to your server to perform the raise action
+        // You can use JavaScript's fetch or another method to make the request
+
+        // Update the user's chips and display the result
+        userChips -= chips;
+        updateUserChipsDisplay();
+        document.getElementById("resultMessage").innerText = username + " raised by " + chips + " chips.";
+    }
+
+    function check() {
+        const gameId = document.getElementById("gameId").value;
+        const username = document.getElementById("username").value;
+
+        // Send a request to your server to perform the check action
+        // You can use JavaScript's fetch or another method to make the request
+
+        // Display the result
+        document.getElementById("resultMessage").innerText = username + " checked.";
+    }
+
+    function fold() {
+        const gameId = document.getElementById("gameId").value;
+        const username = document.getElementById("username").value;
+
+        // Send a request to your server to perform the fold action
+        // You can use JavaScript's fetch or another method to make the request
+
+        // Display the result
+        document.getElementById("resultMessage").innerText = username + " folded.";
+    }
+
+    function addChips() {
+        const addChipsAmount = parseInt(document.getElementById("addChipsAmount").value, 10);
+
+        if (!isNaN(addChipsAmount) && addChipsAmount > 0) {
+            userChips += addChipsAmount;
+            updateUserChipsDisplay();
+        }
+    }
+
+    function updateUserChipsDisplay() {
+        document.getElementById("userChips").innerText = "Chips: " + userChips;
+    }
+</script>
+</body>
+</html>

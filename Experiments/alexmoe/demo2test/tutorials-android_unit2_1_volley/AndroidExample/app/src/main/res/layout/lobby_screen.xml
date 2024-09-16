@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/showPlayers"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pokerbackground5"
+    tools:background="@drawable/pokerbackground5">
+
+    <TextView
+        android:id="@+id/msgResponse2"
+        android:layout_width="331dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="304dp"
+        android:text="Active players in lobby:"
+        android:textAlignment="center"
+        android:textColor="#F3B805"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/showPlayers2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/showPlayers2"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="516dp"
+        android:text="Show Players"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="612dp"
+        android:text="Start Game"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/menuBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="22dp"
+        android:text="Menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/leaveLobby"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="612dp"
+        android:text="Leave Lobby"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/msgResponse"
+        android:layout_width="288dp"
+        android:layout_height="375dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="316dp"
+        android:textAlignment="center"
+        android:textColor="#F30505"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

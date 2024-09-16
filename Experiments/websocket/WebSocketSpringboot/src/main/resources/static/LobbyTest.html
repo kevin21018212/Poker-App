@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lobby Test Page</title>
+</head>
+<body>
+<h1>Lobby Test Page</h1>
+
+<!-- Form to enter a username -->
+<form id="lobbyForm">
+    <label for="username">Enter Your Username:</label>
+    <input type="text" id="username" name="username" required>
+    <button type="submit">Join Lobby</button>
+    <button type="button" id="leaveLobbyButton">Leave Lobby</button>
+    <button type="button" id="startGameButton">Start Game</button>
+</form>
+
+<div id="response"></div>
+
+<!-- Div to display players in the lobby -->
+<div id="lobbyPlayers"></div>
+
+<script>
+    // JavaScript to handle form submission and button clicks
+    const lobbyForm = document.getElementById("lobbyForm");
+    const leaveLobbyButton = document.getElementById("leaveLobbyButton");
+    const startGameButton = document.getElementById("startGameButton");
+    const responseDiv = document.getElementById("response");
+    const lobbyPlayersDiv = document.getElementById("lobbyPlayers");
+
+    // Function to fetch and display lobby players
+    async function displayLobbyPlayers() {
+        const response = await fetch("/lobby/players", {
+            method: "GET"
+        });
+        const players = await response.json();
+
+        // Create a list of players
+        const playerList = players.map(player => player.username).join(', ');
+
+        // Update the lobbyPlayersDiv
+        lobbyPlayersDiv.textContent = "Players in the lobby: " + playerList;
+    }
+
+    // Initial call to display lobby players
+    displayLobbyPlayers();
+
+    lobbyForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+
+        // Send a request to join the lobby
+        const response = await fetch("/lobby/join-lobby?username=" + username, {
+            method: "POST"
+        });
+
+        const result = await response.text();
+        responseDiv.textContent = result;
+
+        // Refresh the lobby players list
+        await displayLobbyPlayers();
+    });
+
+    leaveLobbyButton.addEventListener("click", async function () {
+        const username = document.getElementById("username").value;
+
+        // Send a request to leave the lobby
+        const response = await fetch("/lobby/leave-lobby?username=" + username, {
+            method: "POST"
+        });
+
+        const result = await response.text();
+        responseDiv.textContent = result;
+
+        // Refresh the lobby players list
+        await displayLobbyPlayers();
+    });
+
+    startGameButton.addEventListener("click", async function () {
+        // Send a request to start the game
+        const response = await fetch("/lobby/start-game", {
+            method: "POST"
+        });
+
+        const result = await response.text();
+        responseDiv.textContent = result;
+    });
+</script>
+</body>
+</html>

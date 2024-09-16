@@ -1,0 +1,1 @@
+This project uses Android Studio to create a poker app for users. PLayers can create an account, login, view game stats of themselves or other players, update their profile, delete their account, and play Texas Hold Em poker either live with other players on a different device, or on their own against bots.

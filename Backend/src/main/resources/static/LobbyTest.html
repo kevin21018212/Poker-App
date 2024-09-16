@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<h1>Lobby Test</h1>
+
+<button onclick="joinLobby('user1')">Join Lobby as User1</button>
+<button onclick="joinLobby('user2')">Join Lobby as User2</button>
+<button onclick="joinLobby('user3')">Join Lobby as User3</button>
+
+<h2>/players List:</h2>
+<ul id="lobbyPlayers"></ul>
+
+<script>
+    const updatePlayersList = (players) => {
+        const playersList = document.getElementById('lobbyPlayers');
+        playersList.innerHTML = '';
+
+        players.forEach(player => {
+            const li = document.createElement('li');
+            li.textContent = JSON.stringify(player);
+            playersList.appendChild(li);
+        });
+    };
+
+    const joinLobby = (username) => {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/lobby/join-lobby',
+            data: { username },
+            success: (response) => {
+                console.log(response);
+            },
+            error: (error) => {
+                console.error(error.responseText);
+            },
+        });
+
+        // Fetch and update players list after a short delay
+        setTimeout(() => {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/lobby/players',
+                success: (response) => {
+                    updatePlayersList(response);
+                },
+                error: (error) => {
+                    console.error(error.responseText);
+                },
+            });
+        }, 500);
+    };
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/pokerbackground5"
+    tools:context=".LoginPageActivity">
+
+    <TextView
+        android:id="@+id/userText3"
+        android:layout_width="139dp"
+        android:layout_height="88dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/material_on_background_disabled"
+        android:text="User"
+        android:textAlignment="center"
+        android:textColor="#F80707"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/editProfile"
+        android:layout_width="153dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="48dp"
+        android:text="Update Profile"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/returnToHome"
+        android:layout_width="157dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Return to Home Page"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/submitID"
+        android:layout_width="146dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="244dp"
+        android:text="View Stats"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/enterIDText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="316dp"
+        android:text="Enter Your User ID"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/returnedUser"
+        android:layout_width="348dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="420dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enterIDEdit"
+        android:layout_width="191dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="372dp"
+        android:width="300sp"
+        android:height="40sp"
+        android:background="@drawable/edittext_background"
+        android:hint="Enter User ID"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
